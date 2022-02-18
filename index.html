@@ -10,7 +10,7 @@
         $(document).ready(function () {
             $("#tinyUrlForm").submit(function (event) {
                 event.preventDefault();
-                var longUrl = $('#url').val();
+                var longUrl = $('#longUrl').val();
                 $.ajax({
                     method: 'post',
                     url: '/data',
@@ -31,8 +31,8 @@
         <h3>TinyUrl By Tzahi Anidgar</h3>
         <form id="tinyUrlForm" action="/data" method="post">
             Enter Long URL:
-            <input class="input-group-text" type="text" id="url" name="url" step="any" /><br>
-            <input type="submit" value="cut The URL" />
+            <input class="input-group-text" type="text" id="longUrl" name="longUrl" step="any" /><br>
+            <input type="submit" id = "run" value="cut The URL" />
         </form>
         <p>The new URL is:</p>
         <div id="result"></div>
