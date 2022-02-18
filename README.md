@@ -1,10 +1,29 @@
 # Unleash-Test
-Unleash Test for Interview
 
-URL shortening system,
-You can insert a long URL and by clicking on run you get a tiny url
 
-the autotest check 3 scenarios 
-* good url
-* bad url
-* null
+Unleash-Test is a home exem for job interview.
+
+## Installation
+
+Use the terminal cmd and run command 
+
+```bash
+npm install
+```
+
+## Usage
+
+For running application only run command 
+
+```bash
+npm run server
+```
+
+For running Automation Test  run command 
+
+```bash
+npm run test
+```
+
+## Result
+The results will be received in the report in the report folder
