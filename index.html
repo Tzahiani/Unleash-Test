@@ -1,23 +1,42 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <title>Interview Test-TinyUrl</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#tinyUrlForm").submit(function (event) {
+                event.preventDefault();
+                var longUrl = $('#url').val();
+                $.ajax({
+                    method: 'post',
+                    url: '/data',
+                    data: JSON.stringify({ longUrl: longUrl }),
+                    contentType: 'application/json',
+                    success: function (data) {
+                        $('#result').text(data);
+                    }
+
+                })
+            });
+        });
+    </script>
 </head>
+
 <body>
-    <h3>TinyUrl By Tzahi Anidgar</h3>
-    <form method="GET" action="/getURL">
-        <div lass="input-group input-group-sm mb-3">
-            <div class="prompt left-pane">
-                <span>Enter a URL to Tiny the URL</span>
-                <div class="right-pane">
-                    <input class="input-group-text" type="text" id="longUrl inputGroup-sizing-sm" name="longUrl" />
-                </div>
-            </div>
-            <div class="submit-name">
-                <button type="submit" class="btn btn-primary">get the Tiny URL</button>
-            </div>
-        </div>
-    </form>
+    <div class="continer">
+        <h3>TinyUrl By Tzahi Anidgar</h3>
+        <form id="tinyUrlForm" action="/data" method="post">
+            Enter Long URL:
+            <input class="input-group-text" type="text" id="url" name="url" step="any" /><br>
+            <input type="submit" value="cut The URL" />
+        </form>
+        <p>The new URL is:</p>
+        <div id="result"></div>
+    </div>
 </body>
+
 </html>
