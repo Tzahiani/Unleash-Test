@@ -2,6 +2,11 @@
 
 
 Unleash-Test is a home exem for job interview.
+The app was written in NodeJS and is very basic
+The automation checks were written in NodeJS with the TestCafe framework
+And cover three main tests
+
+No API tests were written because a built-in language library was used
 
 ## Installation
 
