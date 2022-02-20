@@ -4,15 +4,17 @@
   "description": "Interview Test-TinyUrl",
   "main": "server.js",
   "scripts": {
-    "test": "testcafe chrome Auto-test\\AutoTest.Spec.js",
-    "server":"node server.js",
-    "dev": "concurrently \"npm run server\" \"npm run test\""
+    "testCafe": "testcafe chrome Auto-test\\AutoTest.Spec.js --reporter html:report\\report.html",
+    "server": "node server.js",
+    "test": "concurrently \"npm run server\" \"npm run testCafe\""
   },
   "author": "Tzahi Anidgar",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^7.0.0",
     "express": "^4.17.3",
     "testcafe": "^1.18.3",
+    "testcafe-reporter-html": "^1.4.6",
     "tinyurl-api": "^1.0.1",
     "valid-url": "^1.0.9"
   },
